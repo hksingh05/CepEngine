@@ -129,11 +129,6 @@ cep.q prints useful commands after startup. Typical helpers include:
   - `.cep.Stats` — results/statistics table
   - `.cep._PendingStatsReq` — pending requests
 
-Run tests:
-```q
-\l tests/test_cep.q
-.Test.runAllTests[]
-```
 
 ---
 
@@ -198,6 +193,6 @@ CEP internal tables (examples):
 - For the Snap Cache tables persisting in cep services, not sure how long we should store data. Based on user requirements, can delete the old data from snap tables if not required.
 - As of now, processing the snap tables on each upd. For better performance, create a separate processing handler which will run on timer basis to process the snap data.
   
- ## hardware level
+ ## Hardware level
  - 10GbE or InfiniBand networking
  - NUMA-aware CPU pinning
