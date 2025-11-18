@@ -27,9 +27,10 @@ Complex Event Processing (CEP) system for market data written in q (kdb+). This 
 
 - Mock tickerplant that publishes Snap_1 / Snap_60 / Snap_3600 tables on timers
 - CEP engine that loads modular q scripts (schema, utils, calculations, core, data_feed)
-- Demonstration runner and tests
+- Demonstration runner
 - Simple subscription API for clients/CEP to subscribe to snapshots
-- Multi-frequency publishing (1s, 60s, 3600s)
+- Multi-frequency publishing for snap tables(1s, 60s, 3600s)
+- Calculate analytics in requests table and store results in Stats table and delete request once done.
 
 ---
 
@@ -186,7 +187,7 @@ CEP internal tables (examples):
 - `.cep._PendingStatsReq` — pending stats requests
 
 
-## Future Performance Tips
+## Future Performance Tips in production
 ## Code level
 - Run Cep and tp processes on same machine and use unix socket to connect rather than tcp/IP for faster messages publishing.
 - As of now, I am persisting the tables in tp for testing purpose. We should rather avoid persisting data  in tp memory.
@@ -195,4 +196,4 @@ CEP internal tables (examples):
   
  ## Hardware level
  - 10GbE or InfiniBand networking
- - NUMA-aware CPU pinning
+ - NUMA-aware CPU pinning using **numactl** at process startup or using **taskset** for cpu affinity.
