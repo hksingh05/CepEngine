@@ -194,56 +194,14 @@ CEP internal tables (examples):
 - `.cep.Stats` — statistics/results produced by CEP calculations
 - `.cep._PendingStatsReq` — pending stats requests
 
----
 
-## Tests
-
-- Tests are located at: `tests/test_cep.q`  
-- Run them:
-```q
-\l tests/test_cep.q
-.Test.runAllTests[]
-```
-
----
-
-## Development & extending
-
-- Add/modify modules under `src/`:
-  - `schema.q` — data schemas
-  - `utils.q` — helper utilities
-  - `calculations.q` — metrics and calculations
-  - `core.q` — core CEP functions & API
-  - `data_feed.q` — input/data feed handlers
-- Modify `tickerplant.q` to change `SYMS` and `BASEPRICES` or alter publishing logic.
-- Keep tests in sync and add tests for new features in `tests/`.
-
----
-
-## Troubleshooting
-
-- Module load failures: cep.q prints errors while loading modules and exits on failures. Check printed error message to find failing file.
-- Connectivity: ensure tickerplant is reachable at the host/port used by CEP (default `localhost:5010`).
-- No updates: verify client handle registration — subscriber must register with `.tp.sub` (or via helper) so tickerplant will publish updates to them.
-
----
-
-## Contributing
-
-- Open issues and pull requests are welcome.
-- Add tests for new behavior and follow the existing module structure under `src/`.
-
----
-
-## License
-
-No license file is included in the repository. Add a license (e.g., MIT or Apache-2.0) if you want to permit reuse. I can generate an MIT LICENSE text for you if you want.
-
----
-
-If you want, I can:
-- Insert concrete snippets from modules under `src/` into this README (I can extract and include representative functions),
-- Add an MIT LICENSE block and a short badge header,
-- Produce a more compact README variant optimized for repository preview.
-
-Which option do you prefer?
+## Future Performance Tips
+## Code level
+- Run Cep and tp processes on same machine and use unix socket to connect rather than tcp/IP for faster messages publishing.
+- As of now, I am persisting the tables in tp for testing purpose. We should rather avoid persisting data  in tp memory.
+- For the Snap Cache tables persisting in cep services, not sure how long we should store data. Based on user requirements, can delete the old data from snap tables if not required.
+- As of now, processing the snap tables on each upd. For better performance, create a separate processing handler which will run on timer basis to process the snap data.
+  
+ ## hardware level
+ - 10GbE or InfiniBand networking
+ - NUMA-aware CPU pinning
