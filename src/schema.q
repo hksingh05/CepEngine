@@ -14,8 +14,8 @@ Snap_3600:([]sym:`$(); SnapTimeUtc:`timestamp$(); BidPx:`float$(); BidQty:`long$
 / User requests table
 CepStatsReq:([]Id:`guid$(); SnapFreq:`long$(); StartTimeUtc:`timestamp$(); EndTimeUtc:`timestamp$(); StatsOverSnaps:(); syms:());
 
-/ Pending requests table - keyed by Id for efficient lookups
-.cep._PendingStatsReq:([Id:`guid$()] SnapFreq:`long$(); StartTimeUtc:`timestamp$(); EndTimeUtc:`timestamp$(); StatsOverSnaps:(); syms:());
+/ Pending requests table 
+.cep._PendingStatsReq:([]Id:`guid$(); SnapFreq:`long$(); StartTimeUtc:`timestamp$(); EndTimeUtc:`timestamp$(); StatsOverSnaps:(); syms:());
 
 / Final stats output table
 Stats:([]Id:`guid$(); StartTimeUtc:`timestamp$(); EndTimeUtc:`timestamp$(); SnapFreq:`long$(); Calc:());
@@ -29,3 +29,4 @@ LEGAL_OPERATORS:`FIRST`LAST`MIN`MAX`AVG;
 LEGAL_INPUTS:`BidPx`BidQty`AskPx`AskQty`TradePx`TradeQty`MidPx;
 
 \d .
+
