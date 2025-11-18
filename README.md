@@ -1,6 +1,6 @@
 # CepEngine
 
-Complex Event Processing (CEP) system for market data written in q (kdb+). This repository includes a tickerplant that generates mock market snapshots and a CEP engine that loads modular components (schemas, utilities, calculations, core logic, and a demo/data feed) and demonstrates processing, subscription handling, and simple analytics.
+Complex Event Processing (CEP) system for market data written in q (kdb+). This repository includes a tickerplant that generates mock market snapshots for snap data and a CEP engine that loads modular components (schemas, utilities, calculations, core logic, and a demo/data feed) and demonstrates processing, subscription handling, and simple analytics.
 
 ---
 
@@ -19,11 +19,7 @@ Complex Event Processing (CEP) system for market data written in q (kdb+). This 
   - Common commands / helpers
 - Example workflow
 - API / Table schemas
-- Tests
-- Development & extending
-- Troubleshooting
-- Contributing
-- License
+- Future Performance Tips
 
 ---
 
