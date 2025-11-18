@@ -186,6 +186,10 @@ CEP internal tables (examples):
 - `.cep.Stats` — statistics/results produced by CEP calculations
 - `.cep._PendingStatsReq` — pending stats requests
 
+## Testing Evidence:
+ <img width="1527" height="471" alt="image" src="https://github.com/user-attachments/assets/f5964a5b-0d1b-4a2f-b0bc-678e51a337bc" />
+
+
 
 ## Future Performance Tips in production
 ## Code level
