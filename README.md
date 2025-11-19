@@ -191,7 +191,7 @@ CEP internal tables (examples):
 
 
 
-## Future Performance Tips in production
+## Further Performance Tips in production
 ## Code level
 - Run Cep and tp processes on same machine and use unix socket to connect rather than tcp/IP for faster messages publishing.
 - As of now, I am persisting the tables in tp for testing purpose. We should rather avoid persisting data  in tp memory.
