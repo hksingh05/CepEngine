@@ -30,8 +30,8 @@ isRequestComplete:{[reqId; snapFreq;req]
     snapTable:get .cep.getSnapTable[snapFreq];
 
     / Check if all symbols have at least one snap at or beyond EndTimeUtc
-    all {[snapTable; sym; endTime]
-        0 < count select from snapTable where sym=sym, SnapTimeUtc >= endTime
+    all {[snapTable; reqsym; endTime]
+        0 < count select from snapTable where sym=reqsym, SnapTimeUtc >= endTime
     }[snapTable;;first req`EndTimeUtc] each reqSyms
  };
 
@@ -160,4 +160,5 @@ init:{[]
  };
 
 \d .
+
 
